@@ -1,0 +1,15 @@
+D:\ZuberMax\ASPNET\SPA\ToDo\ToDo.Entities\bin\Debug\ToDo.Entities.dll
+D:\ZuberMax\ASPNET\SPA\ToDo\ToDo.Entities\bin\Debug\ToDo.Entities.pdb
+D:\ZuberMax\ASPNET\SPA\ToDo\ToDo.Entities\obj\Debug\ToDo.Entities.csprojResolveAssemblyReference.cache
+D:\ZuberMax\ASPNET\SPA\ToDo\ToDo.Entities\obj\Debug\ToDo.Entities.dll
+D:\ZuberMax\ASPNET\SPA\ToDo\ToDo.Entities\obj\Debug\ToDo.Entities.pdb
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\ToDo.Entities.dll.config
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\ToDo.Entities.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\ToDo.Entities.pdb
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\EntityFramework.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\EntityFramework.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\obj\Debug\ToDo.Entities.csprojResolveAssemblyReference.cache
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\obj\Debug\ToDo.Entities.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\obj\Debug\ToDo.Entities.pdb

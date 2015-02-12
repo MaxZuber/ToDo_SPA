@@ -1,0 +1,10 @@
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\ToDo.Entities.dll.config
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\ToDo.Entities.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\ToDo.Entities.pdb
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\EntityFramework.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\EntityFramework.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\obj\Release\ToDo.Entities.csprojResolveAssemblyReference.cache
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\obj\Release\ToDo.Entities.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.Entities\obj\Release\ToDo.Entities.pdb

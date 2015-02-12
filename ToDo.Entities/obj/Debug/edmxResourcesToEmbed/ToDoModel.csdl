@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="todoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblTasks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblUsers" Relationship="Self.fk_tblTasks_UserID_tblUsers_ID" FromRole="tblTasks" ToRole="tblUsers" />
+  </EntityType>
+  <EntityType Name="tblUsers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblTasks" Relationship="Self.fk_tblTasks_UserID_tblUsers_ID" FromRole="tblUsers" ToRole="tblTasks" />
+  </EntityType>
+  <Association Name="fk_tblTasks_UserID_tblUsers_ID">
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="1" />
+    <End Role="tblTasks" Type="Self.tblTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblTasks">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TodoEntities_WebDeploy" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblTasks" EntityType="Self.tblTasks" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUsers" />
+    <AssociationSet Name="fk_tblTasks_UserID_tblUsers_ID" Association="Self.fk_tblTasks_UserID_tblUsers_ID">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblTasks" EntitySet="tblTasks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
