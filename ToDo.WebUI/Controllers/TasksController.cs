@@ -16,12 +16,14 @@ namespace ToDo.WebUI.Controllers
 
         private readonly ITaskRepository _taskRepository;
 
-        public TasksController()
+
+
+        public TasksController(ITaskRepository taskRepository)
         {
 
-            string connectionString = ConfigurationManager.ConnectionStrings["TodoEntities_WebDeploy"].ConnectionString;
+            //string connectionString = ConfigurationManager.ConnectionStrings["TodoEntities_WebDeploy"].ConnectionString;
 
-            _taskRepository = new FakeTaskRepository();
+            _taskRepository = taskRepository;
         }
 
         [HttpGet]

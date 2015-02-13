@@ -57,3 +57,17 @@ D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\EntityFramework.dll
 D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\EntityFramework.xml
 D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\EntityFramework.SqlServer.dll
 D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\EntityFramework.SqlServer.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.WebApi.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\WebActivatorEx.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.WebApi.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Mvc.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.ServiceLocation.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Mvc.xml
