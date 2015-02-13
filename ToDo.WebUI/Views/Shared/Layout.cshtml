@@ -23,6 +23,9 @@
             <section class="navbar-header">
                 <a class="navbar-brand" href="~/taskoard">ToDo</a>
             </section>   
+            @{
+                Html.RenderAction("LoginHeader", "Shared");
+            }
         </section>
     </header>
 

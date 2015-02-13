@@ -24,6 +24,7 @@ namespace ToDo.WebUI.Models
         public string ConfirmPassword { set; get; }
 
         [DisplayName("E-Mail")]
+        [Required(ErrorMessage = "Please repeat email")]
         [RegularExpression(@".+\@.+\..+", ErrorMessage = "Please enter a valid email address")]
         public string Mail { set; get; }
 
