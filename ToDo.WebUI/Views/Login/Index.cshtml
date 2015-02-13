@@ -1,0 +1,55 @@
+﻿@model ToDo.WebUI.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<section class="row">
+
+    <section class="col-md-8 col-md-offset-2">
+        @using (Html.BeginForm("LogIn", "Authentication", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+        {
+            <section class="form-group">
+                @Html.LabelFor(m => m.Username, new { @class = "col-sm-offset-1 col-sm-2 control-label" })
+                <section class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                </section>
+                <section class="col-sm-offset-2 col-sm-6">
+                    @Html.ValidationMessageFor(m => m.Username, null, new { @class = "label label-danger" })
+                </section>
+            </section>
+
+            <section class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-sm-offset-1 col-sm-2 control-label" })
+                <section class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", type = "password" })
+                </section>
+                <section class="col-sm-offset-2 col-sm-6">
+                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "label label-danger" })
+                </section>
+            </section>
+
+            <section class="form-group">
+                <section class="col-sm-offset-3 col-sm-6">
+                    <section class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => m.IsPersistent)
+                            Remember Me
+                        </label>
+                    </section>
+                </section>
+            </section>
+
+            <section class="form-group">
+                <section class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" value="LogIn" class="btn btn-default">Log In</button>
+                </section>
+
+            </section>
+
+        }
+
+    </section>
+
+
+</section>
