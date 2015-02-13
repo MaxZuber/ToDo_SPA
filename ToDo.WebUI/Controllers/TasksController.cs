@@ -31,6 +31,8 @@ namespace ToDo.WebUI.Controllers
         {
             List<tblTasks> tasks = this._taskRepository.GetAll();
 
+            tasks.ForEach(n => n.tblUsers = null);
+
             return tasks;
         }
 

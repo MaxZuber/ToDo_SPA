@@ -43,7 +43,7 @@ namespace ToDo.WebUI.App_Start
 
             string connectionString = ConfigurationManager.ConnectionStrings["TodoEntities_WebDeploy"].ConnectionString;
 
-            container.RegisterType<ITaskRepository, FakeTaskRepository>(); //new InjectionConstructor(connectionString)
+            container.RegisterType<ITaskRepository, TaskRepository>(new InjectionConstructor(connectionString)); //new InjectionConstructor(connectionString)
         }
     }
 }

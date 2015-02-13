@@ -153,6 +153,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="img\trash-opened.png" />
+    <Content Include="img\trash.png" />
     <Content Include="Content\Bootstrap\bootstrap-theme.css" />
     <Content Include="Content\Bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
@@ -202,6 +204,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\todo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\todo - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

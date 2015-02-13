@@ -22,8 +22,7 @@ namespace ToDo.Dal.Concrete
             {
                 tasks = context.Set<tblTasks>()
                     .Include(n => n.tblUsers)
-                    .ToList();
-               
+                    .ToList();                      
             }
             return tasks;
 
