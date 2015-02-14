@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ToDo.Dal.Abstract;
+using ToDo.Entities;
 using ToDo.WebUI.Models;
 
 namespace ToDo.WebUI.Controllers
@@ -11,6 +13,13 @@ namespace ToDo.WebUI.Controllers
     {
         //
         // GET: /Register/
+
+        private readonly IUserRepository _userRepository;
+
+        public RegisterController(IUserRepository userRepository)
+        {
+            this._userRepository = userRepository;
+        }
 
         [HttpGet]
         public ActionResult Index()
@@ -24,14 +33,35 @@ namespace ToDo.WebUI.Controllers
 
             if(ModelState.IsValid)
             {
-
-
                 ViewBag.Username = user.Username;
 
-                return View("SuccessfullRegistration");
+                tblUsers newUser = new tblUsers()
+                {
+                    Mail = user.Mail,
+                    Password = user.Password,
+                    Username = user.Username
+                };
+
+                newUser = _userRepository.Register(newUser);
+
+
+                if (newUser == null)
+                {
+                    ModelState.AddModelError("Username", "Username already exists");
+                }
+                else
+                {
+                    return View("SuccessfullRegistration");
+                }
+
+                
+
             }
+
             return View();
         }
 
+
+        
     }
 }

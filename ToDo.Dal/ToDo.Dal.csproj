@@ -53,6 +53,7 @@
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\FakeTaskRepository.cs" />
     <Compile Include="Concrete\TaskRepository.cs" />
+    <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

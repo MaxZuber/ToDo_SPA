@@ -51,5 +51,11 @@ namespace ToDo.WebUI.Controllers
             this._taskRepository.Delete(id);
         }
 
+        [HttpPut]
+        public void Update (tblTasks task)
+        {
+            this._taskRepository.Update(task);
+        }
+
     }
 }

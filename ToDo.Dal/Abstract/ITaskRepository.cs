@@ -12,5 +12,7 @@ namespace ToDo.Dal.Abstract
         List<tblTasks> GetAll();
         tblTasks Insert(tblTasks task);
         void Delete(int id);
+
+        void Update(tblTasks task);
     }
 }

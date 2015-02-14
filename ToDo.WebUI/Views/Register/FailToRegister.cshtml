@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@{
+    string username = ViewBag.Username;
+}
+
+<section class="alert alert-danger col-md-6 col-md-offset-3">
+    <strong>
+        Sorry!
+    </strong>
+    your registration failed user with name: @username already exist.
+</section> 

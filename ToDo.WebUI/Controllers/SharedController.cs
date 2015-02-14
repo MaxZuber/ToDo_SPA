@@ -14,9 +14,9 @@ namespace ToDo.WebUI.Controllers
         public ActionResult LoginHeader()
         {
 
-
-
-            return View();
+            string viewName = User.Identity.IsAuthenticated ? "UserHeader" : "LoginHeader";
+            ViewBag.Username = User.Identity.Name;
+            return View(viewName);
         }
 
     }

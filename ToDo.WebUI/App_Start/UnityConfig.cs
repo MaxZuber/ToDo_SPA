@@ -4,6 +4,7 @@ using Microsoft.Practices.Unity.Configuration;
 using ToDo.Dal.Concrete;
 using ToDo.Dal.Abstract;
 using System.Configuration;
+using ToDo.WebUI.Services;
 
 namespace ToDo.WebUI.App_Start
 {
@@ -44,6 +45,7 @@ namespace ToDo.WebUI.App_Start
             string connectionString = ConfigurationManager.ConnectionStrings["TodoEntities_WebDeploy"].ConnectionString;
 
             container.RegisterType<ITaskRepository, TaskRepository>(new InjectionConstructor(connectionString)); //new InjectionConstructor(connectionString)
+            container.RegisterType<IUserRepository, UserRepository>(new InjectionConstructor(connectionString)).RegisterType<ISecurityService, SecurityService>(new InjectionProperty("UserRepository"));
         }
     }
 }

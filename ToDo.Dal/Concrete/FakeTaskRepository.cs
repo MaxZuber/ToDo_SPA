@@ -78,5 +78,11 @@ namespace ToDo.Dal.Concrete
         {
             _tasks.RemoveAll(n => n.ID == id);
         }
+
+
+        public void Update(tblTasks task)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

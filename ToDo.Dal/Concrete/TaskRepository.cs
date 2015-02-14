@@ -9,7 +9,7 @@ using ToDo.Entities;
 
 namespace ToDo.Dal.Concrete
 {
-    public class TaskRepository: AbstractRepository, ITaskRepository
+    public class TaskRepository : AbstractRepository, ITaskRepository
     {
 
         public TaskRepository(string connectionString) : base(connectionString) { }
@@ -18,11 +18,11 @@ namespace ToDo.Dal.Concrete
         {
 
             List<tblTasks> tasks;
-            using(DbContext context = this.CreateDbContext())
+            using (DbContext context = this.CreateDbContext())
             {
                 tasks = context.Set<tblTasks>()
                     .Include(n => n.tblUsers)
-                    .ToList();                      
+                    .ToList();
             }
             return tasks;
 
@@ -30,8 +30,8 @@ namespace ToDo.Dal.Concrete
 
         public Entities.tblTasks Insert(Entities.tblTasks task)
         {
-            
-            using(DbContext context = this.CreateDbContext())
+
+            using (DbContext context = this.CreateDbContext())
             {
                 task.UserID = 1;
                 context.Set<tblTasks>().Add(task);
@@ -45,11 +45,22 @@ namespace ToDo.Dal.Concrete
 
         public void Delete(int id)
         {
-            using(DbContext context = this.CreateDbContext())
+            using (DbContext context = this.CreateDbContext())
             {
-                tblTasks task = new tblTasks() {ID = id};
+                tblTasks task = new tblTasks() { ID = id };
                 context.Set<tblTasks>().Attach(task);
                 context.Set<tblTasks>().Remove(task);
+                context.SaveChanges();
+            }
+        }
+
+
+        public void Update(tblTasks task)
+        {
+            using(var context = this.CreateDbContext())
+            {
+                tblTasks oldTask = context.Set<tblTasks>().First(n => n.ID == task.ID);
+
                 context.SaveChanges();
             }
         }

@@ -101,8 +101,19 @@
                     that.tasks.remove(ff);
 
                     if (e.target.action == "change-status") {
-                        ff.Status = parseInt(e.target.id);
-                        that.tasks.push(ff);
+
+                        $.ajax({
+                            type: "PUT",
+                            url: "/api/tasks/",
+                            data: ff,
+                            success: function (data) {
+                                ff.Status = parseInt(e.target.id);
+                                that.tasks.push(ff);
+                            },
+                            error: function () {
+                                console.log("update task - error");
+                            }
+                        });
                     }
                     return true;
                 }

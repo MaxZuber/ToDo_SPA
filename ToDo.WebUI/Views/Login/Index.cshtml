@@ -7,7 +7,7 @@
 <section class="row">
 
     <section class="col-md-8 col-md-offset-2">
-        @using (Html.BeginForm("LogIn", "Authentication", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+        @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
         {
             <section class="form-group">
                 @Html.LabelFor(m => m.Username, new { @class = "col-sm-offset-1 col-sm-2 control-label" })

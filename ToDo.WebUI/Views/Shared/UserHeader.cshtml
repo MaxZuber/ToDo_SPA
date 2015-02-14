@@ -1,0 +1,25 @@
+﻿
+@{
+    string username = ViewBag.Username;
+}
+
+<section class="collapse navbar-collapse nav-custom-style">
+
+    <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                @username <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownUserMenu">
+                <li role="presentation">
+                    <a role="menuitem" href="~/logout"> Logout</a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+
+
+</section>
+
+  
