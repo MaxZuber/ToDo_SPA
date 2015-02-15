@@ -27,6 +27,18 @@ namespace ToDo.Dal.Concrete
             return tasks;
 
         }
+        public List<tblTasks> GetTasksForUserID(int ID)
+        {
+            List<tblTasks> tasks;
+            using (DbContext context = this.CreateDbContext())
+            {
+                tasks = context.Set<tblTasks>()
+                    .Where(n => n.UserID == ID)
+                    .Include(n => n.tblUsers)
+                    .ToList();
+            }
+            return tasks;
+        }
 
         public Entities.tblTasks Insert(Entities.tblTasks task)
         {
@@ -60,9 +72,15 @@ namespace ToDo.Dal.Concrete
             using(var context = this.CreateDbContext())
             {
                 tblTasks oldTask = context.Set<tblTasks>().First(n => n.ID == task.ID);
-
+                context.Entry(oldTask).CurrentValues.SetValues(task);
                 context.SaveChanges();
             }
+        }
+
+
+        public List<tblTasks> GetTasksForUserID(int ID)
+        {
+            throw new NotImplementedException();
         }
     }
 }

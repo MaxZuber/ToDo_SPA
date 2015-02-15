@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ToDo.WebUI.Controllers
 {
+    [Authorize]
     public class TaskBoardController : Controller
     {
         //

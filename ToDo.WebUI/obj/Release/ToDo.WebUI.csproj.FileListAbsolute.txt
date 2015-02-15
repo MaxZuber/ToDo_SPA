@@ -33,3 +33,17 @@ D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\ToDo.Entities.pdb
 D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\obj\Release\ToDo.WebUI.csprojResolveAssemblyReference.cache
 D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\obj\Release\ToDo.WebUI.dll
 D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\obj\Release\ToDo.WebUI.pdb
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Mvc.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.WebApi.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\WebActivatorEx.dll
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.ServiceLocation.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.Mvc.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Programming\ASP\SPA\ToDo\ToDo.WebUI\bin\Microsoft.Practices.Unity.WebApi.xml

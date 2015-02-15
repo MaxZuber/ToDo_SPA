@@ -11,13 +11,11 @@ using ToDo.Entities;
 
 namespace ToDo.WebUI.Controllers
 {
+    [Authorize]
     public class TasksController : ApiController
     {
 
         private readonly ITaskRepository _taskRepository;
-
-
-
         public TasksController(ITaskRepository taskRepository)
         {
 
@@ -28,6 +26,15 @@ namespace ToDo.WebUI.Controllers
 
         [HttpGet]
         public List<tblTasks> Get()
+        {
+            List<tblTasks> tasks = this._taskRepository.GetAll();
+
+            tasks.ForEach(n => n.tblUsers = null);
+
+            return tasks;
+        }
+        [HttpGet]
+        public List<tblTasks> Get(int id)
         {
             List<tblTasks> tasks = this._taskRepository.GetAll();
 

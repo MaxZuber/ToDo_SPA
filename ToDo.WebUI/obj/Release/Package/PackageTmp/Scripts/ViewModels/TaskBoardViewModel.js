@@ -91,26 +91,50 @@
 
         that.ondrop = function (data, e) {
 
-
+            $("#trash").css('background', 'url(/img/trash.png)');
             var d = e.dataTransfer.getData('text');
             console.log('ondrop js', d);
 
-            ko.utils.arrayForEach(that.tasks(), function (f) {
+            ko.utils.arrayFirst(that.tasks(), function (f) {
                 if (f.ID == d) {
                     var ff = f;
                     that.tasks.remove(ff);
-                    ff.Status = parseInt(e.target.id);
-                    that.tasks.push(ff);
+
+                    if (e.target.action == "change-status") {
+
+                        $.ajax({
+                            type: "PUT",
+                            url: "/api/tasks/",
+                            data: ff,
+                            success: function (data) {
+                                ff.Status = parseInt(e.target.id);
+                                that.tasks.push(ff);
+                            },
+                            error: function () {
+                                console.log("update task - error");
+                            }
+                        });
+                    }
+                    return true;
                 }
             });
-
-
-
-            
-
             return true;
         }
 
+        that.ondragenterTrash = function (data) {
+            console.log('dragentertrash');
+            $("#trash").css('background', 'url(/img/trash-opened.png)');
+            return true;
+        }
+        that.ondragleaveTrash = function (data) {
+            console.log('dragleavetrash');
+            $("#trash").css('background', 'url(/img/trash.png)');
+            return true;
+        }
+        that.ondragoverTrash = function (data) {
+            console.log('dragoverTrash');
+            return true;
+        }
 
         var _private = {};
         var _public = {};

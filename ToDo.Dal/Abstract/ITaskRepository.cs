@@ -10,9 +10,11 @@ namespace ToDo.Dal.Abstract
     public interface ITaskRepository
     {
         List<tblTasks> GetAll();
+        List<tblTasks> GetTasksForUserID(int ID);
         tblTasks Insert(tblTasks task);
         void Delete(int id);
 
         void Update(tblTasks task);
+
     }
 }

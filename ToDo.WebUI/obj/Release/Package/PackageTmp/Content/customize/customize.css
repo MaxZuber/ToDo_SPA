@@ -1,3 +1,14 @@
 ﻿/** {
     border: 1px solid #00ff21;
 }*/
+
+.trash-box {
+    background: url(/img/trash.png) center no-repeat ; 
+    min-width:300px;
+    min-height:300px;
+    border: 1px solid black;
+}
+
+/*.trash-box:hover{
+    background: url(/img/trash-opened.png) center no-repeat ; 
+}*/

@@ -1,142 +1,151 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Task Board";
 }
 
-<!DOCTYPE html>
+<section class="row">
+    <section class="col-md-12">
+        <h1>Task Board Page</h1>
+    </section>
+</section>
+<section class="row">
+    <section class="col-md-3">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Task Board</title>
-    <script src="~/Scripts/libs/jquery-2.1.3.js" type="text/javascript"></script>
-    <script src="~/Scripts/libs/knockout-3.2.0.js" type="text/javascript"></script>
-    <script src="~/Scripts/ViewModels/TaskBoardViewModel.js" type="text/javascript"></script>
-
-    <link href="~/Content/Bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/customize/customize.css" rel="stylesheet" type="text/css"/>
-    <script src="~/Scripts/libs/Moment/moment.min.js" type="text/javascript"></script>
-    <script src="~/Scripts/libs/knockout.bindings.date.js" type="text/javascript"></script>
-
-</head>
-<body>
-    <section class="container">
-        <section class="row">
-            <section class="col-md-12">
-                <h1>Task Board Page</h1>
+        <section class="panel panel-default text-center">
+            <section class="panel-heading">
+                <h4> ToDo</h4>
             </section>
-        </section>
-        <section class="row">
-            <section class="col-md-3">
-
-                <section class="panel panel-default text-center">
-                    <section class="panel-heading">
-                        <h4> ToDo</h4>
-                    </section>
-                    <section class="panel-body" data-bind=" event:{
+            <section class="panel-body" data-bind=" event:{
                                       dragover: function(event){console.log('dragover'); },
                                      dragenter: function(event){console.log('dragenter'); },
                                      dragleave: function(event){console.log('dragleave'); },
-                                     drop: function(data, event){event.target.id = 1; $root.ondrop($data, event); return true;}
-    }">
+                                     drop: function(data, event){
+                                         event.target.id = 1; 
+                                         event.target.action = 'change-status' ;  
+                                         $root.ondrop($data, event); return true;
+                                     }}">
 
-                        <section data-bind="foreach: tasks">
+                <section data-bind="foreach: tasks">
 
-                            <section data-bind="if: Status === 1">
-                                <section class="well" draggable="true" data-bind="event:{
+                    <section data-bind="if: Status === 1">
+                        <section class="well" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
-                                    <section data-bind="text: Title"></section>
-                                    <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
-                                </section>
-                            </section>
-
+                            <section data-bind="text: Title"></section>
+                            <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
                         </section>
-
-
                     </section>
-                </section> 
 
-            </section>
-            <section class="col-md-3">
-
-                <section class="panel panel-default text-center">
-                    <section class="panel-heading">
-                        <h4> Inprogress</h4>
-                    </section>
-                    <section class="panel-body" data-bind=" event:{
-                                      dragover: function(event){console.log('dragover'); },
-                                     dragenter: function(event){console.log('dragenter'); },
-                                     dragleave: function(event){console.log('dragleave'); },
-                                     drop: function(data, event){ event.target.id = 2; $root.ondrop($data, event); return true;}
-    }">
-                        <section data-bind="foreach: tasks">
-
-                            <section data-bind="if: Status === 2">
-                                <section class="well" draggable="true" data-bind="event:{
-dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
-}">
-                                    <section data-bind="text: Title"></section>
-                                    <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
-                                </section>
-                            </section>
-
-                        </section>
-
-                    </section>
-                </section> 
-
-            </section>
-            <section class="col-md-3">
-
-                <section class="panel panel-default text-center">
-                    <section class="panel-heading">
-                        <h4> Finished</h4>
-                    </section>
-                    <section class="panel-body" data-bind=" event:{
-                                      dragover: function(event){console.log('dragover'); },
-                                     dragenter: function(event){console.log('dragenter'); },
-                                     dragleave: function(event){console.log('dragleave'); },
-                                     drop: function(data, event){ event.target.id = 3; $root.ondrop($data, event); return true;}
-    }">
-                        <section data-bind="foreach: tasks">
-
-                            <section data-bind="if: Status === 3">
-                                <section class="well" draggable="true" data-bind="event:{
-dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
-}">
-                                    <section data-bind="text: Title"></section>
-                                    <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
-                                </section>
-                            </section>
-
-                        </section>
-
-                    </section>
-                </section> 
-                
-            </section>
-
-            <section class="col-md-3">
-                <section>
-                    <section>
-                        <input type="text" data-bind="value: TaskTitel" />
-                    </section>
-                    <section>
-                        <textarea data-bind="value: TaskDescription" rows="5" cols="45"></textarea>
-                    </section>
-                    <section>
-                        <input type="button" value="Add task" data-bind="click: onAddTask" />
-                    </section>
                 </section>
+
+
             </section>
         </section>
-
-        
-
-        
-
-        
 
     </section>
-</body>
-</html>
+    <section class="col-md-3">
+
+        <section class="panel panel-default text-center">
+            <section class="panel-heading">
+                <h4> Inprogress</h4>
+            </section>
+            <section class="panel-body" data-bind=" event:{
+                                      dragover: function(event){console.log('dragover'); },
+                                     dragenter: function(event){console.log('dragenter'); },
+                                     dragleave: function(event){console.log('dragleave'); },
+                                     drop: function(data, event){ 
+                                         event.target.id = 2; 
+                                         event.target.action = 'change-status' ; 
+                                         $root.ondrop($data, event); 
+                                         return true;
+                                     }}">
+                <section data-bind="foreach: tasks">
+
+                    <section data-bind="if: Status === 2">
+                        <section class="well" draggable="true" data-bind="event:{
+dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
+}">
+                            <section data-bind="text: Title"></section>
+                            <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                        </section>
+                    </section>
+
+                </section>
+
+            </section>
+        </section>
+
+    </section>
+    <section class="col-md-3">
+
+        <section class="panel panel-default text-center">
+            <section class="panel-heading">
+                <h4> Finished</h4>
+            </section>
+            <section class="panel-body" data-bind=" event:{
+                                      dragover: function(event){console.log('dragover'); },
+                                     dragenter: function(event){console.log('dragenter'); },
+                                     dragleave: function(event){console.log('dragleave'); },
+                                     drop: function(data, event){
+                                         event.target.id = 3;
+                                         event.target.action = 'change-status' ;
+                                         $root.ondrop($data, event);
+                                         return true;              
+                                     }}">
+                <section data-bind="foreach: tasks">
+
+                    <section data-bind="if: Status === 3">
+                        <section class="well" draggable="true" data-bind="event:{
+dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
+}">
+                            <section data-bind="text: Title"></section>
+                            <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                        </section>
+                    </section>
+
+                </section>
+
+            </section>
+        </section>
+
+    </section>
+
+    <section class="col-md-3">
+        <section>
+            <section>
+                <input type="text" data-bind="value: TaskTitel" />
+            </section>
+            <section>
+                <textarea data-bind="value: TaskDescription" rows="5" cols="45"></textarea>
+            </section>
+            <section>
+                <input type="button" value="Add task" data-bind="click: onAddTask" />
+            </section>
+        </section>
+
+        <section id="trash" class="trash-box" data-bind="event:{
+     dragover: function(event){$root.ondragoverTrash(); },
+     dragenter: function(event){ $root.ondragenterTrash();},
+     dragleave: function(event){ $root.ondragleaveTrash();},
+            drop: function(data, event) {
+                 event.target.action = 'remove' ;
+                 $root.ondrop($data, event);
+                 return true;
+            }}"></section>
+
+    </section>
+
+    </section>
+@*</section>
+    <section class="row">
+
+        <section class="col-md-3 col-md-offset-9 trash-box" data-bind="event:{
+                drop: function(data, event) {
+                     event.target.action = 'remove' ;
+                     $root.ondrop($data, event);
+                     return true;
+                }}"></section>
+
+    </section>*@
