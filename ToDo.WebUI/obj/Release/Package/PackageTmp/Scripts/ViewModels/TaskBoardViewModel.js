@@ -17,7 +17,7 @@
                     that.tasks(data);
                 },
                 error: function () {
-                    alert("Error");
+                    alert("Error - get tasks");
                 }
             });
         };
@@ -61,59 +61,70 @@
                 }
             });
         };
+        that.onChangeStatus = function (task, targetID) {
+            task.Status = targetID;
+            that.tasks.push(task);
+            $.ajax({
+                type: "PUT",
+                url: "/api/tasks/",
+                data: task,
+                //success: function (data) {
 
-        //that.allowDrop = function (ev) {
-        //    ev.preventDefault();
-        //};
-
-        //that.drag = function (ev) {
-        //    ev.dataTransfer.setData("text", ev.target.id);
-        //}
-        //that.drop = function (ev) {
-        //    ev.preventDefault();
-        //    var data = ev.dataTransfer.getData("text");
-        //    ev.target.appendChild(document.getElementById(data));
-        //}
+                //},
+                error: function () {
+                    console.log("update task - error");
+                    alert("Error  - updating to do list");
+                }
+            });
+        }
 
         that.ondragstart = function (data, e) {
 
             console.log('ondragstart');
 
             e.dataTransfer.setData('text', data.ID);
+            e.target.SourceId = data.ID;
+
 
             return true;
         };
 
         that.ondragend = function (e) {
             console.log('ondragend');
-            //resetUI();
         };
 
         that.ondrop = function (data, e) {
 
             $("#trash").css('background', 'url(/img/trash.png)');
             var d = e.dataTransfer.getData('text');
-            console.log('ondrop js', d);
+            console.log('ondrop js');
 
             ko.utils.arrayFirst(that.tasks(), function (f) {
                 if (f.ID == d) {
                     var ff = f;
                     that.tasks.remove(ff);
+                    //that.onRemoveTask(ff);
 
                     if (e.target.action == "change-status") {
 
-                        $.ajax({
-                            type: "PUT",
-                            url: "/api/tasks/",
-                            data: ff,
-                            success: function (data) {
-                                ff.Status = parseInt(e.target.id);
-                                that.tasks.push(ff);
-                            },
-                            error: function () {
-                                console.log("update task - error");
-                            }
-                        });
+                        that.onChangeStatus(ff, parseInt(e.target.id))
+                        //ff.Status = parseInt(e.target.id);
+                        //that.tasks.push(ff);
+                        //$.ajax({
+                        //    type: "PUT",
+                        //    url: "/api/tasks/",
+                        //    data: ff,
+                        //    //success: function (data) {
+                                
+                        //    //},
+                        //    error: function () {
+                        //        console.log("update task - error");
+                        //        alert("Error  - updating to do list");
+                        //    }
+                        //});
+                    }
+                    else if (e.target.action == "remove") {
+                        that.onRemoveTask(ff);
                     }
                     return true;
                 }
@@ -147,9 +158,8 @@
 
 
     $(function () {
+
         $.event.props.push('dataTransfer');
-        $.event.props.push('pageX');
-        $.event.props.push('pageY');
         var model = new taskBoardViewModel();
         model.loadTasks();
         ko.applyBindings(model);

@@ -45,7 +45,6 @@ namespace ToDo.Dal.Concrete
 
             using (DbContext context = this.CreateDbContext())
             {
-                task.UserID = 1;
                 context.Set<tblTasks>().Add(task);
                 context.SaveChanges();
             }
@@ -75,12 +74,6 @@ namespace ToDo.Dal.Concrete
                 context.Entry(oldTask).CurrentValues.SetValues(task);
                 context.SaveChanges();
             }
-        }
-
-
-        public List<tblTasks> GetTasksForUserID(int ID)
-        {
-            throw new NotImplementedException();
         }
     }
 }

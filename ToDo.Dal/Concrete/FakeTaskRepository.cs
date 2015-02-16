@@ -84,5 +84,11 @@ namespace ToDo.Dal.Concrete
         {
             throw new NotImplementedException();
         }
+
+
+        public List<tblTasks> GetTasksForUserID(int ID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

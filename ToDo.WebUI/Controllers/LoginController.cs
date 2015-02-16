@@ -39,7 +39,7 @@ namespace ToDo.WebUI.Controllers
 
 
 
-                bool IsSuccessful = _securityService.Login(user.Username, user.Username, user.IsPersistent);
+                bool IsSuccessful = _securityService.Login(user.Username, user.Password, user.IsPersistent);
 
                 if (IsSuccessful)
                 {

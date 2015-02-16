@@ -11,6 +11,7 @@ namespace ToDo.Dal.Abstract
     {
         tblUsers Register(tblUsers user);
         tblUsers Login(string username, string password);
+        tblUsers Login(string username);
 
     }
 }

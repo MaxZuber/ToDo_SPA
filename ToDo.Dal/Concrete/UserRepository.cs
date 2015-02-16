@@ -43,5 +43,17 @@ namespace ToDo.Dal.Concrete
             return retUser;
                  
         }
+
+
+        public tblUsers Login(string username)
+        {
+            tblUsers retUser;
+
+            using (var context = this.CreateDbContext())
+            {
+                retUser = context.Set<tblUsers>().SingleOrDefault(n => n.Username == username);
+            }
+            return retUser;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ToDo.WebUI.Services;
 
 namespace ToDo.WebUI
 {
@@ -13,6 +14,7 @@ namespace ToDo.WebUI
     
     public class MvcApplication : System.Web.HttpApplication
     {
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -20,6 +22,12 @@ namespace ToDo.WebUI
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+            ISecurityService securityService = DependencyResolver.Current.GetService<ISecurityService>();
+            securityService.Login();
         }
     }
 }

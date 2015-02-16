@@ -3,6 +3,11 @@
 }
 @{
     ViewBag.Title = "Task Board";
+    string userID = ViewBag.UserID;
+}
+
+@section Scripts{
+    <script src="~/Scripts/ViewModels/TaskBoardViewModel.js" type="text/javascript"></script>
 }
 
 <section class="row">
@@ -138,14 +143,3 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
     </section>
 
     </section>
-@*</section>
-    <section class="row">
-
-        <section class="col-md-3 col-md-offset-9 trash-box" data-bind="event:{
-                drop: function(data, event) {
-                     event.target.action = 'remove' ;
-                     $root.ondrop($data, event);
-                     return true;
-                }}"></section>
-
-    </section>*@

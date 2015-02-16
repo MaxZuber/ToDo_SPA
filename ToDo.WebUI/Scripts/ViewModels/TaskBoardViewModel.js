@@ -61,6 +61,22 @@
                 }
             });
         };
+        that.onChangeStatus = function (task, targetID) {
+            task.Status = targetID;
+            that.tasks.push(task);
+            $.ajax({
+                type: "PUT",
+                url: "/api/tasks/",
+                data: task,
+                //success: function (data) {
+
+                //},
+                error: function () {
+                    console.log("update task - error");
+                    alert("Error  - updating to do list");
+                }
+            });
+        }
 
         that.ondragstart = function (data, e) {
 
@@ -87,22 +103,28 @@
                 if (f.ID == d) {
                     var ff = f;
                     that.tasks.remove(ff);
+                    //that.onRemoveTask(ff);
 
                     if (e.target.action == "change-status") {
-                        ff.Status = parseInt(e.target.id);
-                        that.tasks.push(ff);
-                        $.ajax({
-                            type: "PUT",
-                            url: "/api/tasks/",
-                            data: ff,
-                            //success: function (data) {
+
+                        that.onChangeStatus(ff, parseInt(e.target.id))
+                        //ff.Status = parseInt(e.target.id);
+                        //that.tasks.push(ff);
+                        //$.ajax({
+                        //    type: "PUT",
+                        //    url: "/api/tasks/",
+                        //    data: ff,
+                        //    //success: function (data) {
                                 
-                            //},
-                            error: function () {
-                                console.log("update task - error");
-                                alert("Error  - updating to do list");
-                            }
-                        });
+                        //    //},
+                        //    error: function () {
+                        //        console.log("update task - error");
+                        //        alert("Error  - updating to do list");
+                        //    }
+                        //});
+                    }
+                    else if (e.target.action == "remove") {
+                        that.onRemoveTask(ff);
                     }
                     return true;
                 }
