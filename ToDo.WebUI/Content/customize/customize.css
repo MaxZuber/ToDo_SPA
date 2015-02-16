@@ -12,3 +12,9 @@
 /*.trash-box:hover{
     background: url(/img/trash-opened.png) center no-repeat ; 
 }*/
+
+.task-actions{
+    margin: 0px 10px;
+
+    width:20px;
+}

@@ -23,11 +23,5 @@ namespace ToDo.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
-
-        protected void Application_AuthenticateRequest(object sender, EventArgs e)
-        {
-            ISecurityService securityService = DependencyResolver.Current.GetService<ISecurityService>();
-            securityService.Login();
-        }
     }
 }

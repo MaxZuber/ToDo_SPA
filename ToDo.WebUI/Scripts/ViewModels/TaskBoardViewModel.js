@@ -146,13 +146,6 @@
             console.log('dragoverTrash');
             return true;
         }
-
-        var _private = {};
-        var _public = {};
-
-        _public.init = function () {
-
-        };
     };
 
 
