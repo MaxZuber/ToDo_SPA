@@ -53,8 +53,8 @@ namespace ToDo.WebUI.Controllers
         {
             ClaimsPrincipal user = User as ClaimsPrincipal;
             string userID = user.Claims.Single(n => n.Type == ClaimTypes.NameIdentifier).Value;
-            task.DueDate = DateTime.Now;
             task.UserID = int.Parse(userID);
+
            return this._taskRepository.Insert(task);
 
         }
@@ -68,6 +68,9 @@ namespace ToDo.WebUI.Controllers
         [HttpPut]
         public void Update (tblTasks task)
         {
+            ClaimsPrincipal user = User as ClaimsPrincipal;
+            string userID = user.Claims.Single(n => n.Type == ClaimTypes.NameIdentifier).Value;
+            task.UserID = int.Parse(userID);
             this._taskRepository.Update(task);
         }
 

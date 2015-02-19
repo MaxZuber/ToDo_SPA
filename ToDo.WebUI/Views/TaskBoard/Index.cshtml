@@ -135,33 +135,49 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
     <section class="col-md-3">
 
         <section class="row">
-           
-            <section class="col-md-offset-1 col-md-3 well well-sm text-center btn btn-default" role="button">
-                    <span class="glyphicon glyphicon-plus"></span>
+
+            <section id="btnShowTaskPanel" class="col-md-offset-1 col-md-3 well well-sm text-center btn btn-default" role="button" data-bind="click: $root.onShowNewTaskPanel">
+                <span class="glyphicon glyphicon-plus"></span>
             </section>
-            <section class="col-md-3 well well-sm text-center">
+            <section class="col-md-3 well well-sm text-center"
+                     data-bind="event: {
+    drop: function(data, event ){$root.dropEditTask(data, event)},
+    dragover: function(data, event) {$root.dragoverEditTask(data, event)} ,
+    dragenter: function(data, event) {$root.dragenterEditTask(data, event)},
+    dragleave: function(data, event) {$root.dragleaveEditTask(data, event)}
+    }">
                 <span class="glyphicon glyphicon-pencil"></span>
             </section>
-            <section class="col-md-3 well well-sm text-center">
+
+            <section id="trash-box" class="col-md-3 well well-sm text-center" data-bind="event:{
+            dragover: function(event){$root.ondragoverTrash(); },
+            dragenter: function(event){ $root.ondragenterTrash();},
+            dragleave: function(event){ $root.ondragleaveTrash();},
+                   drop: function(data, event) {
+                        event.target.action = 'remove' ;
+                        $root.ondrop($data, event);
+                        return true;
+                   }}">
                 <span class="glyphicon glyphicon-trash"></span>
             </section>
+
+            <section id="newTaskPanel" class="col-md-offset-1 col-md-9 panel panel-default custom-hide ">
+                <input type="hidden" id="task-ID" />
+                <input type="hidden" id="task-Status" />
+                <input id="task-Title" type="text" class="form-control task-from-input" placeholder="Title" />
+                <textarea id="task-Description" class="form-control task-from-input" placeholder="Description"></textarea>
+                <input id="task-DueDate" type="text" class="form-control" placeholder="Due Date" />
+                <section class="text-center">
+                    <input id="task-btnConfirm" type="button" class="btn btn-success task-from-input" value="Confirm" data-bind="click: $root.onAddTask" />
+                    <input id="task-btnConfirm" type="button" class="btn btn-default task-from-input" value="Cancle" data-bind="click: $root.onShowNewTaskPanel" />
+                </section>
+
+            </section>
+
         </section>
 
-        @*<section class="row">
 
 
-
-                <section class="col-md-4">
-                    <section class="btn-group">
-                        <button type="button" class="btn btn-default task-actions" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        </button>
-                    </section>
-
-                </section>
-                <section class="col-md-4"> <span class=" glyphicon glyphicon-pencil"></span></section>
-                <section class="col-md-4"><span class="glyphicon glyphicon-trash"></span></section>
-            </section>*@
 
 
         @*<section>

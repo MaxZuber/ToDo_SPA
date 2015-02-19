@@ -18,3 +18,19 @@
 
     width:20px;
 }
+
+.drag-hover{
+    background-color: #b4fbf9;
+}
+
+.custom-hide{
+    display: none;
+}
+
+.task-from-input{
+    margin: 10px 0px;
+}
+
+textarea{
+    resize:vertical;
+}
