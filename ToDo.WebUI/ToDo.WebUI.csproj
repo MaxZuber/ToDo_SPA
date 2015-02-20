@@ -247,6 +247,7 @@
     <Content Include="Views\Shared\UserHeader.cshtml" />
     <Content Include="Views\Register\SuccessfullRegistration.cshtml" />
     <Content Include="Views\Register\FailToRegister.cshtml" />
+    <Content Include="todo.appcache" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

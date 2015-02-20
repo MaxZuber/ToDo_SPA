@@ -10,9 +10,24 @@
     <script src="~/Scripts/ViewModels/TaskBoardViewModel.js" type="text/javascript"></script>
 }
 
+
+
 <section class="row">
     <section class="col-md-12">
-        <h1>Task Board Page</h1>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 25%">
+                <span class="sr-only">25% Complete (success)</span>
+            </div>
+            <div class="progress-bar progress-bar-warning  progress-bar-striped" style="width: 25%">
+                <span class="sr-only">25% Complete (warning)</span>
+            </div>
+            <div class="progress-bar progress-bar-danger" style="width: 25%">
+                <span class="sr-only">25% Complete (danger)</span>
+            </div>
+            <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%">
+                <span class="sr-only">25% Complete (info)</span>
+            </div>
+        </div>
     </section>
 </section>
 <section class="row">
@@ -27,8 +42,8 @@
                                      dragenter: function(event){console.log('dragenter'); },
                                      dragleave: function(event){console.log('dragleave'); },
                                      drop: function(data, event){
-                                         event.target.id = 1; 
-                                         event.target.action = 'change-status' ;  
+                                         event.target.id = 1;
+                                         event.target.action = 'change-status' ;
                                          $root.ondrop($data, event); return true;
                                      }}">
 
@@ -60,10 +75,10 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                                       dragover: function(event){console.log('dragover'); },
                                      dragenter: function(event){console.log('dragenter'); },
                                      dragleave: function(event){console.log('dragleave'); },
-                                     drop: function(data, event){ 
-                                         event.target.id = 2; 
-                                         event.target.action = 'change-status' ; 
-                                         $root.ondrop($data, event); 
+                                     drop: function(data, event){
+                                         event.target.id = 2;
+                                         event.target.action = 'change-status' ;
+                                         $root.ondrop($data, event);
                                          return true;
                                      }}">
                 <section data-bind="foreach: tasks">
@@ -97,7 +112,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                                          event.target.id = 3;
                                          event.target.action = 'change-status' ;
                                          $root.ondrop($data, event);
-                                         return true;              
+                                         return true;
                                      }}">
                 <section data-bind="foreach: tasks">
 
@@ -118,28 +133,75 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
     </section>
 
     <section class="col-md-3">
-        <section>
-            <section>
-                <input type="text" data-bind="value: TaskTitel" />
+
+        <section class="row">
+
+            <section id="btnShowTaskPanel" class="col-md-offset-1 col-md-3 well well-sm text-center btn btn-default" role="button" data-bind="click: $root.onShowNewTaskPanel">
+                <span class="glyphicon glyphicon-plus"></span>
             </section>
-            <section>
-                <textarea data-bind="value: TaskDescription" rows="5" cols="45"></textarea>
+            <section class="col-md-3 well well-sm text-center"
+                     data-bind="event: {
+    drop: function(data, event ){$root.dropEditTask(data, event)},
+    dragover: function(data, event) {$root.dragoverEditTask(data, event)} ,
+    dragenter: function(data, event) {$root.dragenterEditTask(data, event)},
+    dragleave: function(data, event) {$root.dragleaveEditTask(data, event)}
+    }">
+                <span class="glyphicon glyphicon-pencil"></span>
             </section>
-            <section>
-                <input type="button" value="Add task" data-bind="click: onAddTask" />
+
+            <section id="trash-box" class="col-md-3 well well-sm text-center" data-bind="event:{
+            dragover: function(event){$root.ondragoverTrash(); },
+            dragenter: function(event){ $root.ondragenterTrash();},
+            dragleave: function(event){ $root.ondragleaveTrash();},
+                   drop: function(data, event) {
+                        event.target.action = 'remove' ;
+                        $root.ondrop($data, event);
+                        return true;
+                   }}">
+                <span class="glyphicon glyphicon-trash"></span>
             </section>
+
+            <section id="newTaskPanel" class="col-md-offset-1 col-md-9 panel panel-default custom-hide ">
+                <input type="hidden" id="task-ID" />
+                <input type="hidden" id="task-Status" />
+                <input id="task-Title" type="text" class="form-control task-from-input" placeholder="Title" />
+                <textarea id="task-Description" class="form-control task-from-input" placeholder="Description"></textarea>
+                <input id="task-DueDate" type="text" class="form-control" placeholder="Due Date" />
+                <section class="text-center">
+                    <input id="task-btnConfirm" type="button" class="btn btn-success task-from-input" value="Confirm" data-bind="click: $root.onAddTask" />
+                    <input id="task-btnConfirm" type="button" class="btn btn-default task-from-input" value="Cancle" data-bind="click: $root.onShowNewTaskPanel" />
+                </section>
+
+            </section>
+
         </section>
 
-        <section id="trash" class="trash-box" data-bind="event:{
-     dragover: function(event){$root.ondragoverTrash(); },
-     dragenter: function(event){ $root.ondragenterTrash();},
-     dragleave: function(event){ $root.ondragleaveTrash();},
-            drop: function(data, event) {
-                 event.target.action = 'remove' ;
-                 $root.ondrop($data, event);
-                 return true;
-            }}"></section>
 
+
+
+
+        @*<section>
+                   <section>
+                       <input type="text" data-bind="value: TaskTitel" />
+                   </section>
+                   <section>
+                       <textarea data-bind="value: TaskDescription" rows="5" cols="45"></textarea>
+                   </section>
+                   <section>
+                       <input type="button" value="Add task" data-bind="click: onAddTask" />
+                   </section>
+               </section>
+
+               <section id="trash" class="trash-box" data-bind="event:{
+            dragover: function(event){$root.ondragoverTrash(); },
+            dragenter: function(event){ $root.ondragenterTrash();},
+            dragleave: function(event){ $root.ondragleaveTrash();},
+                   drop: function(data, event) {
+                        event.target.action = 'remove' ;
+                        $root.ondrop($data, event);
+                        return true;
+                   }}"></section>
+        *@
     </section>
 
-    </section>
+</section>
