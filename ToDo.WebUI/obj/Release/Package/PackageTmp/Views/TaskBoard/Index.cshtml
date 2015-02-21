@@ -15,17 +15,17 @@
 <section class="row">
     <section class="col-md-12">
         <div class="progress">
-            <div class="progress-bar progress-bar-success" style="width: 25%">
-                <span class="sr-only">25% Complete (success)</span>
+            <div class="progress-bar progress-bar-info" style="width: 25%">
+                <span class="sr-only">25% Complete (info)</span>
             </div>
             <div class="progress-bar progress-bar-warning  progress-bar-striped" style="width: 25%">
                 <span class="sr-only">25% Complete (warning)</span>
             </div>
-            <div class="progress-bar progress-bar-danger" style="width: 25%">
-                <span class="sr-only">25% Complete (danger)</span>
+            <div class="progress-bar progress-bar-success" style="width: 25%">
+                <span class="sr-only">25% Complete (successs)</span>
             </div>
-            <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%">
-                <span class="sr-only">25% Complete (info)</span>
+            <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 25%">
+                <span class="sr-only">25% Complete (danger)</span>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@
 <section class="row">
     <section class="col-md-3">
 
-        <section class="panel panel-default text-center">
+        <section class="panel panel-info text-center">
             <section class="panel-heading">
                 <h4> ToDo</h4>
             </section>
@@ -50,11 +50,15 @@
                 <section data-bind="foreach: tasks">
 
                     <section data-bind="if: Status === 1">
-                        <section class="well" draggable="true" data-bind="event:{
+                        <section class="panel panel-default" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
-                            <section data-bind="text: Title"></section>
-                            <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                            <section class="panel-body task" data-bind="event : {mouseover: $root.onTaskOver, mouseout: $root.onTaskOverLeave}">
+                                <section data-bind="text: Title"></section>
+                                <section data-bind="text: Description" class="custom-hide"></section>
+                                <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                            </section>
+
                         </section>
                     </section>
 
@@ -67,7 +71,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
     </section>
     <section class="col-md-3">
 
-        <section class="panel panel-default text-center">
+        <section class="panel panel-warning text-center">
             <section class="panel-heading">
                 <h4> Inprogress</h4>
             </section>
@@ -84,11 +88,14 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                 <section data-bind="foreach: tasks">
 
                     <section data-bind="if: Status === 2">
-                        <section class="well" draggable="true" data-bind="event:{
+                        <section class="panel panel-default" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
-                            <section data-bind="text: Title"></section>
-                            <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                            <section class="panel-body">
+                                <section data-bind="text: Title"></section>
+                                <section data-bind="text: Description" class="custom-hide"></section>
+                                <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                            </section>
                         </section>
                     </section>
 
@@ -100,7 +107,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
     </section>
     <section class="col-md-3">
 
-        <section class="panel panel-default text-center">
+        <section class="panel panel-success text-center">
             <section class="panel-heading">
                 <h4> Finished</h4>
             </section>
@@ -117,11 +124,15 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                 <section data-bind="foreach: tasks">
 
                     <section data-bind="if: Status === 3">
-                        <section class="well" draggable="true" data-bind="event:{
+                        <section class="panel panel-default" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
-                            <section data-bind="text: Title"></section>
-                            <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+                            <section class="panel-body">
+                                <section data-bind="text: Title"></section>
+                                <section data-bind="text: Description" class="custom-hide"></section>
+                                <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
+
+                            </section>
                         </section>
                     </section>
 
@@ -175,33 +186,6 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
             </section>
 
         </section>
-
-
-
-
-
-        @*<section>
-                   <section>
-                       <input type="text" data-bind="value: TaskTitel" />
-                   </section>
-                   <section>
-                       <textarea data-bind="value: TaskDescription" rows="5" cols="45"></textarea>
-                   </section>
-                   <section>
-                       <input type="button" value="Add task" data-bind="click: onAddTask" />
-                   </section>
-               </section>
-
-               <section id="trash" class="trash-box" data-bind="event:{
-            dragover: function(event){$root.ondragoverTrash(); },
-            dragenter: function(event){ $root.ondragenterTrash();},
-            dragleave: function(event){ $root.ondragleaveTrash();},
-                   drop: function(data, event) {
-                        event.target.action = 'remove' ;
-                        $root.ondrop($data, event);
-                        return true;
-                   }}"></section>
-        *@
     </section>
 
 </section>

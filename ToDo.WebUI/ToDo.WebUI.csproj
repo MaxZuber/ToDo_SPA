@@ -212,7 +212,10 @@
     <Content Include="Scripts\libs\Moment\moment.js" />
     <Content Include="Scripts\libs\Moment\moment.min.js" />
     <Content Include="Scripts\ViewModels\TaskBoardViewModel.js" />
-    <Content Include="Web.config" />
+    <Content Include="todo.appcache" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -247,7 +250,6 @@
     <Content Include="Views\Shared\UserHeader.cshtml" />
     <Content Include="Views\Register\SuccessfullRegistration.cshtml" />
     <Content Include="Views\Register\FailToRegister.cshtml" />
-    <Content Include="todo.appcache" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

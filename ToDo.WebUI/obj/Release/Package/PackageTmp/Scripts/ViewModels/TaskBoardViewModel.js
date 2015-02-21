@@ -233,6 +233,10 @@
             addButton.toggleClass('glyphicon-plus').toggleClass('glyphicon-minus');
            
         }
+
+        that.onTaskOver = function (data, event) {
+
+        }
     };
 
     $(function () {
