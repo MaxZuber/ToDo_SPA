@@ -54,3 +54,7 @@ textarea{
 .task-description{
     font-style: italic;
 }
+
+.as-button-pointer{
+    cursor:pointer;
+}
