@@ -38,7 +38,7 @@
                 <h4> ToDo</h4>
             </section>
             <section class="panel-body" data-bind=" event:{
-                                      dragover: function(event){console.log('dragover'); },
+                                      dragover: function(data, event){console.log('dragover') },
                                      dragenter: function(event){console.log('dragenter'); },
                                      dragleave: function(event){console.log('dragleave'); },
                                      drop: function(data, event){
@@ -53,7 +53,7 @@
                         <section class="panel panel-default" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
-                            <section class="panel-body task" data-bind="event : {mouseover: $root.onTaskOver, mouseout: $root.onTaskOverLeave}">
+                            <section class="panel-body task task-panel" data-bind="event : {mouseover: $root.onTaskOver, mouseout: $root.onTaskOverLeave}">
                                 <section data-bind="text: Title"></section>
                                 <section data-bind="text: Description" class="custom-hide"></section>
                                 <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
@@ -88,7 +88,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                 <section data-bind="foreach: tasks">
 
                     <section data-bind="if: Status === 2">
-                        <section class="panel panel-default" draggable="true" data-bind="event:{
+                        <section class="panel panel-default task-panel" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
                             <section class="panel-body">
@@ -124,7 +124,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                 <section data-bind="foreach: tasks">
 
                     <section data-bind="if: Status === 3">
-                        <section class="panel panel-default" draggable="true" data-bind="event:{
+                        <section class="panel panel-default task-panel" draggable="true" data-bind="event:{
 dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
                             <section class="panel-body">
@@ -148,7 +148,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
         <section class="row">
 
             <section id="btnShowTaskPanel" class="col-md-offset-1 col-md-3 well well-sm text-center btn btn-default" role="button" data-bind="click: $root.onShowNewTaskPanel">
-                <span class="glyphicon glyphicon-plus"></span>
+                <span class="glyphicon glyphicon-plus child-element"></span>
             </section>
             <section class="col-md-3 well well-sm text-center"
                      data-bind="event: {
@@ -157,7 +157,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
     dragenter: function(data, event) {$root.dragenterEditTask(data, event)},
     dragleave: function(data, event) {$root.dragleaveEditTask(data, event)}
     }">
-                <span class="glyphicon glyphicon-pencil"></span>
+                <span class="glyphicon glyphicon-pencil child-element"></span>
             </section>
 
             <section id="trash-box" class="col-md-3 well well-sm text-center" data-bind="event:{
@@ -169,7 +169,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
                         $root.ondrop($data, event);
                         return true;
                    }}">
-                <span class="glyphicon glyphicon-trash"></span>
+                <span class="glyphicon glyphicon-trash child-element"></span>
             </section>
 
             <section id="newTaskPanel" class="col-md-offset-1 col-md-9 panel panel-default custom-hide ">
