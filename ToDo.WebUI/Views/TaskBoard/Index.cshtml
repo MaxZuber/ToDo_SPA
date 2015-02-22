@@ -55,7 +55,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
                             <section class="panel-body task task-panel" data-bind="event : {mouseover: $root.onTaskOver, mouseout: $root.onTaskOverLeave}">
                                 <section data-bind="text: Title"></section>
-                                <section data-bind="text: Description" class="custom-hide"></section>
+                                <section data-bind="text: Description" class="custom-hide task-description"></section>
                                 <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
                             </section>
 
@@ -93,7 +93,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
                             <section class="panel-body">
                                 <section data-bind="text: Title"></section>
-                                <section data-bind="text: Description" class="custom-hide"></section>
+                                <section data-bind="text: Description" class="custom-hide task-description"></section>
                                 <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
                             </section>
                         </section>
@@ -129,7 +129,7 @@ dragstart: function(data, e) {$root.ondragstart(data, e); return true;}
 }">
                             <section class="panel-body">
                                 <section data-bind="text: Title"></section>
-                                <section data-bind="text: Description" class="custom-hide"></section>
+                                <section data-bind="text: Description" class="custom-hide task-description"></section>
                                 <section data-bind="date: DueDate, format: 'DD MMM YYYY'"></section>
 
                             </section>

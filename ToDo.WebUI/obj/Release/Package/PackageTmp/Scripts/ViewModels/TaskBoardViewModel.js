@@ -140,7 +140,7 @@
             var jsonTask = JSON.stringify(data);
             e.dataTransfer.setData('task', jsonTask);
             e.target.SourceId = data.ID;
-
+            
 
             return true;
         };
@@ -169,9 +169,13 @@
             return true;
         }
 
+        that.ondragover = function (data, e) {
+
+            return true;
+        }
+
         that.ondragenterTrash = function (data) {
             console.log('dragentertrash');
-            //$("#trash").css('background', 'url(/img/trash-opened.png)');
             $("#trash-box").addClass("drag-hover");
 
 
@@ -179,7 +183,6 @@
         }
         that.ondragleaveTrash = function (data) {
             console.log('dragleavetrash');
-            //$("#trash").css('background', 'url(/img/trash.png)');
             $("#trash-box").removeClass("drag-hover");
             return true;
         }
@@ -197,6 +200,9 @@
         };
 
         that.dragenterEditTask = function (d, e) {
+
+            e.preventDefault();
+
             if (!$("#newTaskPanel").is(":visible")) {
                 that.onShowNewTaskPanel();
             }
@@ -205,8 +211,7 @@
         };
 
         that.dragleaveEditTask = function (d, e) {
-
-
+            e.preventDefault();
             if ($("#newTaskPanel").is(":visible")) {
                 that.onShowNewTaskPanel();
             }
@@ -214,10 +219,7 @@
             return true;
         };
         that.dragoverEditTask = function (d, e) {
-
-            //if ($("#newTaskPanel").is(":visible")) {
-            //    that.onShowNewTaskPanel();
-            //}
+            e.preventDefault();
 
             console.log("dragoverEditTask ");
             return true;

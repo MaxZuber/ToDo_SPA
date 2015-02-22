@@ -1,6 +1,6 @@
-﻿/** {
-    border: 1px solid #00ff21;
-}*/
+﻿* {
+    -webkit-user-select: none; 
+}
 
 .trash-box {
     background: url(/img/trash.png) center no-repeat ; 
@@ -33,4 +33,16 @@
 
 textarea{
     resize:vertical;
+}
+
+.task-panel:hover{
+    cursor: pointer;
+}
+.task-panel:active{
+    cursor: move;
+}
+
+/*disable drag leave event when dragover child elements*/
+.child-element {
+  pointer-events: none;
 }

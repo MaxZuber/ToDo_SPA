@@ -42,7 +42,15 @@ textarea{
     cursor: move;
 }
 
+.task-panel:hover * {
+    display: inherit;
+}
+
 /*disable drag leave event when dragover child elements*/
 .child-element {
   pointer-events: none;
+}
+
+.task-description{
+    font-style: italic;
 }
